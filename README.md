@@ -6,6 +6,14 @@ The Metova gem provides a plethora of functionality for Rails apps.
 
 Right now the Metova gem is under development and should *NOT* be used in real applications.
 
+## Installation
+
+```ruby
+gem 'metova'
+```
+
+Then `bundle install`.
+
 ## API Responder
 
 This engine includes a Responder for use with the `responders` gem. Rails responders are executed when calling
