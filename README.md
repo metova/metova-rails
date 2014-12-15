@@ -18,7 +18,7 @@ Then `bundle install`.
 
 This engine includes a Responder for use with the `responders` gem. Rails responders are executed when calling
 `respond_with` in a controller action. To gain the full effect of these libraries, you should always be using
-`respond_with` instead of the "default" Rails `respond_to |format|` blocks.
+`respond_with` instead of the "default" Rails `respond_to do |format|` blocks.
 
 To enable the Responder, add this line to the top of your API base controller:
 
@@ -37,7 +37,7 @@ GET http://*.*/api/posts?page=2&limit=10
 
 ## Filtering via ?ids=x,y,z
 
-APIs accept an `ids` parameter to filter the results to records with those ids. The `ids` parameter should be
+APIs accept an `ids` parameter to filter the results to records with the provided ids. The `ids` parameter should be
 comma delimited. This is useful when your API will only return a list of nested ids instead of embedding
 the entire JSON of the nested objects.
 
@@ -46,6 +46,7 @@ For example, to get a user's posts:
 ```
 GET http://*.*/api/users/1
 # => { "users": { "id": 1, "posts": [1, 2, 3] } }
+
 GET http://*.*/api/posts?ids=1,2,3
 # => { "posts": [{ "id": 1, "author": 1 }, { "id": 2, "author": 1 }, { "id": 3, "author": 1 }] }
 ```
