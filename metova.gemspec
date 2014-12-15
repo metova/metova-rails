@@ -10,11 +10,13 @@ Gem::Specification.new do |s|
   s.authors     = ["Logan Serman"]
   s.email       = ["loganserman@gmail.com"]
   s.homepage    = "http://github.com/metova/metova"
-  s.summary     = "TODO: Summary of Metova."
-  s.description = "TODO: Description of Metova."
+  s.summary     = "Metova libraries for Ruby on Rails"
+  s.description = s.summary
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+
+  s.required_ruby_version = '>= 2.0.0'
 
   s.add_dependency 'rails', '~> 4.2.0.rc3'
   s.add_dependency 'kaminari', '~> 0.16.0'

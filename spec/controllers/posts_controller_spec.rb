@@ -12,21 +12,43 @@ describe Api::PostsController do
     end
 
     it 'paginates when the page parameters are sent' do
-      get :index, user_id: user, page: 2, per_page: 5
+      get :index, user_id: user, page: 2, limit: 5
       expect(json.size).to be 5
       ids = json.map { |h| h[:id] }
       expect(ids).to eq user.posts.limit(5).offset(5).pluck(:id)
     end
 
-    it 'returns an error message when the page param is present but the per_page param isnt' do
+    it 'returns an error message when the page param is present but the limit param isnt' do
       get :index, user_id: user, page: 1
-      expect(json[:errors]).to include "'page' param sent without 'per_page'"
+      expect(json[:errors]).to include "'page' param sent without 'limit'"
     end
 
-    it 'returns an error message when the per_page param is present but the page param isnt' do
-      get :index, user_id: user, per_page: 20
-      expect(json[:errors]).to include "'per_page' param sent without 'page'"
+    it 'returns an error message when the limit param is present but the page param isnt' do
+      get :index, user_id: user, limit: 20
+      expect(json[:errors]).to include "'limit' param sent without 'page'"
+    end
+
+    it 'has a link header for next' do
+      get :index, user_id: user, page: 1, limit: 5
+      expect(response.headers['Link']).to match %r[api/posts\?limit=5&page=2(.*)?\srel="next"]
+    end
+
+    it 'has a link header for last' do
+      get :index, user_id: user, page: 1, limit: 5
+      expect(response.headers['Link']).to match %r[api/posts\?limit=5&page=5(.*)?\srel="last"]
     end
   end
 
+  describe '?ids=x,y,z filtering' do
+    before do
+      10.times { user.posts.create title: 'Title', body: 'Body' }
+    end
+
+    it 'only returns the posts that have ids present in the ids parameter' do
+      posts = user.posts.pluck(:id).sample(5)
+      get :index, user_id: user, ids: posts.join(',')
+      expect(json.size).to be 5
+      expect(json.map { |h| h[:id] }).to match_array posts
+    end
+  end
 end

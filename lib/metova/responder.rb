@@ -2,6 +2,7 @@ module Metova
   class Responder < ActionController::Responder
 
     prepend Metova::Responders::PaginationResponder
+    prepend Metova::Responders::IdsFilterResponder
 
     def to_format
       validate!
