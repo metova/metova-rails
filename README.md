@@ -28,11 +28,13 @@ self.responder = Metova::Responder
 
 ## Pagination
 
-APIs accept a `page` and `limit` parameter to paginate their results.
+APIs accept a `page` and `limit` parameter to paginate their results. Pagination information is available to API
+consumers via the `Link` header on the response.
 
 ```
 GET http://*.*/api/posts?page=2&limit=10
 # => posts 11-20
+# => Link: <http://*.*/api/posts?page=3&limit=10>; rel="next", <http://*.*/api/posts?page=10&limit=10>; rel="last"
 ```
 
 ## Filtering via ?ids=x,y,z
