@@ -60,10 +60,10 @@ can be passed via the `direction` parameter, which defaults to `asc`.
 
 ```
 GET http://*.*/api/posts?sort=title
-# => { "posts": [{ "id": 1, "author": 1, title: 'Aaah!' }, { "id": 2, "author": 1, title: 'Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo' }] }
+# => { "posts": [{ "id": 1, "author": 1, title: 'ABC' }, { "id": 2, "author": 1, title: 'BCD' }] }
 
 GET http://*.*/api/posts?sort=title&direction=desc
-# => { "posts": [{ "id": 2, "author": 1, title: 'Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo' }, { "id": 1, "author": 1, title: 'Aaah!' }] }
+# => { "posts": [{ "id": 2, "author": 1, title: 'BCD' }, { "id": 1, "author": 1, title: 'ABC' }] }
 ```
 
 ## API Versioning
