@@ -84,10 +84,10 @@ namespace :api, defaults: { format: 'json' } do
 end
 ```
 
-## CarrierWave Setup through ENV
+## CarrierWave AWS Setup through ENV
 
 When required, metova-rails will setup CarrierWave based on your ENV. To enable this configuration, add "metova/carrierwave"
-to the `require` array in the Gemfile:
+to the `require` array in your Gemfile:
 
 `gem 'metova', require: ['metova/carrierwave']`
 
