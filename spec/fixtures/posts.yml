@@ -3,3 +3,15 @@ logan:
   user: logan
   title: Hey
   body: This is a post
+
+a:
+  user: logan
+  title: AAA
+
+b:
+  user: logan
+  title: BBB
+
+c:
+  user: logan
+  title: CCC

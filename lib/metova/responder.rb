@@ -3,6 +3,7 @@ module Metova
 
     prepend Metova::Responders::PaginationResponder
     prepend Metova::Responders::IdsFilterResponder
+    prepend Metova::Responders::SortResponder
 
     def to_format
       validate!
