@@ -14,9 +14,9 @@ module Metova
 
       def validate!
         if controller.params.include?(:page) && !controller.params.include?(:limit)
-          errors << "'page' param sent without 'limit'"
+          errors << "The 'page' param was sent without 'limit'"
         elsif controller.params.include?(:limit) && !controller.params.include?(:page)
-          errors << "'limit' param sent without 'page'"
+          errors << "The 'limit' param was sent without 'page'"
         end
         super
       end

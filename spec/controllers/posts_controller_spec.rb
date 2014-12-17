@@ -20,12 +20,12 @@ describe Api::PostsController do
 
     it 'returns an error message when the page param is present but the limit param isnt' do
       get :index, user_id: user, page: 1
-      expect(json[:errors]).to include "'page' param sent without 'limit'"
+      expect(json[:errors]).to include "The 'page' param was sent without 'limit'"
     end
 
     it 'returns an error message when the limit param is present but the page param isnt' do
       get :index, user_id: user, limit: 20
-      expect(json[:errors]).to include "'limit' param sent without 'page'"
+      expect(json[:errors]).to include "The 'limit' param was sent without 'page'"
     end
 
     it 'has a link header for next' do
@@ -68,7 +68,4 @@ describe Api::PostsController do
     end
   end
 
-  describe 'unsupported API versions' do
-
-  end
 end

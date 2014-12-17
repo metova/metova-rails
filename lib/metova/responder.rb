@@ -4,6 +4,8 @@ module Metova
     prepend Metova::Responders::PaginationResponder
     prepend Metova::Responders::IdsFilterResponder
     prepend Metova::Responders::SortResponder
+    include ::Responders::HttpCacheResponder
+    include ::Responders::FlashResponder
 
     def to_format
       validate!
