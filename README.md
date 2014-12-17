@@ -70,7 +70,7 @@ GET http://*.*/api/posts?sort=title&direction=desc
 
 Consumers should pass their API version using the `Accept` header:
 
-`Accept: application/json; version=X`
+`Accept: "application/json"; version=X`
 
 In the Rails app, the current API version is given in a routing DSL. When used, any API version that does not match the given version
 will result in a `412 Precondition failed` response and the consumer should be forced to upgrade.
