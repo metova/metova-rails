@@ -84,6 +84,25 @@ namespace :api, defaults: { format: 'json' } do
 end
 ```
 
+## CarrierWave Setup through ENV
+
+When required, metova-rails will setup CarrierWave based on your ENV. To enable this configuration, add "metova/carrierwave"
+to the `require` array in the Gemfile:
+
+`gem 'metova', require: ['metova/carrierwave']`
+
+Setting the following ENV variables will configure CarrierWave appropriately. In the test environment, file storage will be used and
+processing will be disabled.
+
+```
+ENV['AWS_S3_BUCKET_NAME']
+ENV['AWS_S3_ACCESS_KEY_ID']
+ENV['AWS_S3_SECRET_ACCESS_KEY']
+ENV['CLOUDFRONT_URL']
+```
+
+`ENV['CLOUDFRONT_URL']` is optional, but if set will configure `config.asset_host` so CarrierWave will pull from your Cloudfront distribution.
+
 ## Contributing
 
 1. Fork it ( https://github.com/metova/metova-rails/fork )
