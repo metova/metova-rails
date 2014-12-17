@@ -52,3 +52,34 @@ GET http://*.*/api/users/1
 GET http://*.*/api/posts?ids=1,2,3
 # => { "posts": [{ "id": 1, "author": 1 }, { "id": 2, "author": 1 }, { "id": 3, "author": 1 }] }
 ```
+
+## Sorting via ?sort=<field>&direction=<asc|desc>
+
+APIs accept a `sort` parameter to order the results by a field on the requested resource. To change the direction, `asc` or `desc`
+can be passed via the `direction` parameter, which defaults to `asc`.
+
+```
+GET http://*.*/api/posts?sort=title
+# => { "posts": [{ "id": 1, "author": 1, title: 'Aaah!' }, { "id": 2, "author": 1, title: 'Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo' }] }
+
+GET http://*.*/api/posts?sort=title&direction=desc
+# => { "posts": [{ "id": 2, "author": 1, title: 'Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo' }, { "id": 1, "author": 1, title: 'Aaah!' }] }
+```
+
+## API Versioning
+
+Consumers should pass their API version using the `Accept` header:
+
+`Accept: application/json; version=X`
+
+In the Rails app, the current API version is given in a routing DSL. When used, any API version that does not match the given version
+will result in a `412 Precondition failed` response and the consumer should be forced to upgrade.
+
+```ruby
+namespace :api, defaults: { format: 'json' } do
+  version 2 do
+    resources :posts
+    # ...
+  end
+end
+```

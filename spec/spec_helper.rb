@@ -2,7 +2,6 @@ ENV["RAILS_ENV"] ||= 'test'
 
 require File.expand_path("../../spec/dummy/config/environment.rb",  __FILE__)
 ActiveRecord::Migrator.migrations_paths = [File.expand_path("../../spec/dummy/db/migrate", __FILE__)]
-# ActiveRecord::Migrator.migrations_paths << File.expand_path('../../db/migrate', __FILE__)
 
 require 'rspec/rails'
 
@@ -39,7 +38,7 @@ RSpec.configure do |config|
   end
 
   config.before do
-    @request.env['HTTP_ACCEPT'] = 'application/json'
+    @request.try { |req| req.env['HTTP_ACCEPT'] = 'application/json' }
   end
 
 end
