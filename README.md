@@ -53,7 +53,7 @@ GET http://*.*/api/posts?ids=1,2,3
 # => { "posts": [{ "id": 1, "author": 1 }, { "id": 2, "author": 1 }, { "id": 3, "author": 1 }] }
 ```
 
-## Sorting via ?sort=<field>&direction=<asc|desc>
+## Sorting via ?sort=<field>&direction=(asc|desc)
 
 APIs accept a `sort` parameter to order the results by a field on the requested resource. To change the direction, `asc` or `desc`
 can be passed via the `direction` parameter, which defaults to `asc`.
