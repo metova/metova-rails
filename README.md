@@ -103,6 +103,25 @@ ENV['CLOUDFRONT_URL']
 
 `ENV['CLOUDFRONT_URL']` is optional, but if set will configure `config.asset_host` so CarrierWave will pull from your Cloudfront distribution.
 
+## Mandrill ActionMailer Setup through ENV
+
+When required, metova-rails will setup Rails' ActionMailer to send e-mail through Mandrill. To enable this configuration, add "metova/mandrill"
+to the `require` array in your Gemfile:
+
+`gem 'metova', require: ['metova/mandrill']`
+
+Setting the following ENV variables will configure ActionMailer appropriately. Not setting `ENV['MANDRILL_DOMAIN']` will skip this configuration
+which may be useful in the test/development environment.
+
+```
+ENV['MANDRILL_DOMAIN']
+ENV['MANDRILL_DEFAULT_HOST']
+ENV['MANDRILL_USERNAME']
+ENV['MANDRILL_PASSWORD']
+```
+
+If `ENV['MANDRILL_DEFAULT_HOST']` is not set, `ENV['MANDRILL_DOMAIN']` will be used instead for `default_url_options`.
+
 ## Contributing
 
 1. Fork it ( https://github.com/metova/metova-rails/fork )
