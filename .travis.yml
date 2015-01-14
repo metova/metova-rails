@@ -6,7 +6,7 @@ rvm:
 deploy:
   provider: rubygems
   api_key:
-    secure: OqP4mw3CcN6enRdizAKTfnlQjn4aAJcgb9/Cel2pHFXvSQ7+aDdeAcUxbmbpALnS5cl1Qp7v5ysseUmTdOMyv4PHmGiUnLimyNIfECRP57I8l7o/z07S+KP4BcmEwrS8P/OgaWbboTEkqU+aa9caCGtVCVjeEPb6750E0YnPCpU=
+    secure: ARM2JGEokm/TaJvIIwGgdL4s0QuMlwdVXzwtE4TwiqiSQO2yp8Eet9B0o55O3fITV2Z9UGUBF/9ymoKD2S4m/iGOARosj8q+gmgE/84fdF3glAqTtkCPsUZH8fseAH41e4XYwWkoRhwbxHBVhLn5rVGO4oJKWtFGnddacDBolFQ=
   gem:
     release: metova
   on:
