@@ -1,4 +1,4 @@
-# Metova Rails Components
+# Metova Rails Components [![Build Status](https://travis-ci.org/metova/metova-rails.svg?branch=release)](https://travis-ci.org/metova/metova-rails)
 
 The Metova gem provides a plethora of functionality for Rails apps.
 
