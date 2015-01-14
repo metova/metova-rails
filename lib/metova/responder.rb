@@ -10,13 +10,17 @@ module Metova
     def to_format
       validate!
       if errors.any?
-        display({ errors: errors })
+        display({ errors: errors }, status: 400)
       else
         super
       end
     end
 
     def validate!
+    end
+
+    def json_resource_errors
+      { errors: resource.errors.full_messages }
     end
 
     private

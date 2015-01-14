@@ -1,6 +1,21 @@
 describe Api::PostsController do
   let(:user) { users(:logan) }
 
+  describe '#secret' do
+    it 'returns an error when token authentication fails' do
+      request.env['HTTP_AUTHORIZATION'] = "Token token=dickbutt"
+      get :secret
+      expect(response.status).to eq 401
+      expect(json[:error]).to eq 'Invalid authentication token'
+    end
+
+    it 'returns a 204 when the auth token checks out' do
+      request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}"
+      get :secret
+      expect(response.status).to eq 204
+    end
+  end
+
   describe 'pagination' do
     before do
       20.times { user.posts.create title: 'Title', body: 'Body' }
@@ -20,6 +35,7 @@ describe Api::PostsController do
 
     it 'returns an error message when the page param is present but the limit param isnt' do
       get :index, user_id: user, page: 1
+      expect(response.status).to eq 400
       expect(json[:errors]).to include "The 'page' param was sent without 'limit'"
     end
 

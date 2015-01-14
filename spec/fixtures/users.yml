@@ -3,3 +3,4 @@ logan:
   username: lserman
   password: password
   email: logan.serman@metova.com
+  authentication_token: 'EXAMPLE_AUTH_TOKEN'

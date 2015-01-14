@@ -3,6 +3,7 @@ module Metova
     isolate_namespace Metova
 
     require 'kaminari'
+    require 'devise'
     require 'responders'
 
   end
