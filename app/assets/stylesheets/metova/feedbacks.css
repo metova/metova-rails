@@ -1,29 +1,46 @@
-form {
-  width: 50%;
-  margin: auto;
+#feedback {
+  width: 100%;
+  padding: 20px;
 }
 
-form h1 {
+#feedback form h1 {
   text-align: center;
-  font-size: 24px;
+  font-size: 28px;
 }
 
-textarea {
+#feedback textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
-  height: 200px;
+  height: 400px;
+  margin: 15px 0 12px 0;
 }
 
-input[type=submit] {
+#feedback input[type=submit] {
+  font-size: 22px;
   padding: 15px 0;
   color: #fff;
+  height: 60px;
   width: 100%;
-  background: #4a87ee;
-  border: 1px solid #145fd7;
-  border-radius: 2px;
+  background: #87ab3f;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  text-transform: uppercase;
 }
 
-input[type=submit]:hover {
-  background: #145fd7;
+#feedback input[type=submit]:hover {
+  color: #a2a2a2;
+  background-color: #fff;
+  border-color: #a2a2a2;
+}
+
+#feedback select {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+#feedback .errors {
+  text-align: center;
 }

@@ -4,6 +4,11 @@ require File.expand_path("../../spec/dummy/config/environment.rb",  __FILE__)
 ActiveRecord::Migrator.migrations_paths = [File.expand_path("../../spec/dummy/db/migrate", __FILE__)]
 
 require 'rspec/rails'
+require 'webmock/rspec'
+require 'capybara/rspec'
+
+WebMock.disable_net_connect! allow_localhost: true
+Capybara.javascript_driver = :webkit
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -28,6 +33,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.include JSONHelper
+  config.include Capybara::DSL
   config.include Devise::TestHelpers, type: :controller
 
   config.expect_with :rspec do |expectations|
