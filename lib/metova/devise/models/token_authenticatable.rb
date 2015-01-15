@@ -15,7 +15,7 @@ module Devise
 
       def reset_authentication_token
         self.authentication_token = loop do
-          token = SecureRandom.hex(20)
+          token = Devise.friendly_token
           break token unless self.class.exists?(authentication_token: token)
         end
       end
