@@ -5,8 +5,8 @@ module Devise
     class TokenAuthenticatable < Base
 
       def authenticate!
-        user  = User.find_by(authentication_token: token)
-        if user.present?
+        user = mapping.to.find_by(email: options[:email])
+        if user && valid_token?(user)
           success! user
         else
           fail! 'Invalid authentication token'
@@ -14,13 +14,25 @@ module Devise
       end
 
       def valid?
-        token.present?
+        token.present? && options.include?(:email)
       end
 
       private
 
+        def valid_token?(user)
+          Devise.secure_compare user.authentication_token, token
+        end
+
         def token
-          @_token ||= ActionController::HttpAuthentication::Token.token_and_options(request)
+          @_token ||= token_and_options[0]
+        end
+
+        def options
+          @_options ||= token_and_options[1]
+        end
+
+        def token_and_options
+          @_token_and_options ||= ActionController::HttpAuthentication::Token.token_and_options(request)
         end
 
     end

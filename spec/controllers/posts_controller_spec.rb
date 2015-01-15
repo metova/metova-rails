@@ -9,8 +9,14 @@ describe Api::PostsController do
       expect(json[:error]).to eq 'Invalid authentication token'
     end
 
-    it 'returns a 204 when the auth token checks out' do
+    it 'requires email to be sent to prevent timing attacks' do
       request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}"
+      get :secret
+      expect(response.status).to eq 401
+    end
+
+    it 'returns a 204 when the auth token checks out' do
+      request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}, email=logan.serman@metova.com"
       get :secret
       expect(response.status).to eq 204
     end
