@@ -25,9 +25,10 @@ To enable the Responder, add this line to the top of your API base controller:
 ```ruby
 self.responder = Metova::Responder
 ```
-## Wiki
 
-Please see the Wiki for full documentation!
+## Documentation
+
+Please see the [Wiki](https://github.com/metova/metova-rails/wiki) for full documentation!
 
 ## Contributing
 
