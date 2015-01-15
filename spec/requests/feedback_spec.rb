@@ -30,8 +30,8 @@ describe 'Submitting feedback' do
         fill_in 'feedback_body', with: 'Test'
         click_button 'Submit'
         expect(WebMock).to have_requested(:post, %r[fluxhq.io\/api\/tasks]).with \
-          body: { project_key: 'TEST', task: { actor: '', action: ': Test', benefit: '', task_type: 'admin' } },
-          headers: { 'Accept' => '*/*, version=2', 'Authorization' => 'Token token=123456890, project_key=TEST' }
+          body: { project_key: 'TEST', task: { actor: '', action: 'General: Test', benefit: '', task_type: 'admin' } },
+          headers: { 'Accept' => '*/*, version=2', 'Authorization' => 'Token token="123456890", project_key="TEST"' }
         expect(page).to have_content 'Your feedback was submitted successfully!'
       end
     end

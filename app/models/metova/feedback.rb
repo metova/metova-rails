@@ -29,7 +29,7 @@ module Metova
     def to_h
       {
         actor: '',
-        action: "#{types[type]}: #{body}",
+        action: "#{types.key(type.to_i)}: #{body}",
         benefit: '',
         task_type: 'admin'
       }
@@ -46,7 +46,7 @@ module Metova
 
       def headers
         {
-          'Authorization' => "Token token=#{ENV['FLUX_PROJECT_TOKEN']}, project_key=#{ENV['FLUX_PROJECT_KEY']}",
+          'Authorization' => "Token token=\"#{ENV['FLUX_PROJECT_TOKEN']}\", project_key=\"#{ENV['FLUX_PROJECT_KEY']}\"",
           'Accept' => '*/*, version=2'
         }
       end
