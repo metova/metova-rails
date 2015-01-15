@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Metova::VERSION
   s.authors     = ["Logan Serman"]
   s.email       = ["loganserman@gmail.com"]
-  s.homepage    = "http://github.com/metova/metova"
+  s.homepage    = "http://github.com/metova/metova-rails"
   s.summary     = "Metova libraries for Ruby on Rails"
   s.description = s.summary
   s.license     = "MIT"
