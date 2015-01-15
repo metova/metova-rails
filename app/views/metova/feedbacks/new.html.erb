@@ -1,0 +1,5 @@
+<%= form_for @feedback, url: metova.feedback_path do |f| %>
+  <h1 class="helvetica">Submit Feedback</h1>
+  <%= f.text_area :body %>
+  <%= f.submit 'Submit', class: 'helvetica' %>
+<% end %>
