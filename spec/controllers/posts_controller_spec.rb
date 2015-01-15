@@ -3,7 +3,7 @@ describe Api::PostsController do
 
   describe '#secret' do
     it 'returns an error when token authentication fails' do
-      request.env['HTTP_AUTHORIZATION'] = "Token token=dickbutt"
+      request.env['HTTP_AUTHORIZATION'] = "Token token=dickbutt, email=logan.serman@metova.com"
       get :secret
       expect(response.status).to eq 401
       expect(json[:error]).to eq 'Invalid authentication token'
