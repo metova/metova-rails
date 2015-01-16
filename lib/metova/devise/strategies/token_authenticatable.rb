@@ -20,7 +20,7 @@ module Devise
       private
 
         def valid_token?(user)
-          Devise.secure_compare user.authentication_token, token
+          !user.token_expired? && Devise.secure_compare(user.authentication_token, token)
         end
 
         def token
