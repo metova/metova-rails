@@ -18,7 +18,7 @@ module Devise
           token = Devise.friendly_token
           break token unless self.class.exists?(authentication_token: token)
         end
-        self.token_expires_at = Time.current + expire_in
+        self.token_expires_at = Time.current + expire_token_in
       end
 
       def reset_authentication_token!
@@ -34,7 +34,7 @@ module Devise
         token_expires_at.nil? || token_expires_at.past?
       end
 
-      def expire_in
+      def expire_token_in
         14.days
       end
     end
