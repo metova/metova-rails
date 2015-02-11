@@ -2,14 +2,13 @@
 
 The Metova gem provides a plethora of functionality for Rails apps.
 
-# INCOMPLETE, PLEASE READ
-
-Right now the Metova gem is under development and should *NOT* be used in real applications.
-
 ## Installation
+
+Because AMS 0.10.0 is not released to RubyGems, it should be installed separately in your Gemfile instead of being a dependency of `metova`.
 
 ```ruby
 gem 'metova'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 ```
 
 Then `bundle install`.
