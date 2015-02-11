@@ -23,8 +23,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'devise', '>= 3.2.0'
   s.add_dependency 'responders', '~> 2.0'
 
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "carrierwave"
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'carrierwave'
+  s.add_development_dependency 'textacular'
+  s.add_development_dependency 'pg'
 
 end

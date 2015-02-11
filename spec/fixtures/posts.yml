@@ -7,11 +7,14 @@ logan:
 a:
   user: logan
   title: AAA
+  body: Aaaa aaa aa a
 
 b:
   user: logan
   title: BBB
+  body: Bbbb bbb bb b
 
 c:
   user: logan
   title: CCC
+  body: Cccc ccc cc c

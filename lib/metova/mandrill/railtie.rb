@@ -4,6 +4,7 @@ module Metova
 
       initializer "metova.mandrill" do |app|
         if ENV['MANDRILL_DOMAIN']
+
           app.config.action_mailer.default_url_options = { host: (ENV['MANDRILL_DEFAULT_HOST'] || ENV['MANDRILL_DOMAIN']) }
           app.config.action_mailer.delivery_method = :smtp
           app.config.action_mailer.smtp_settings = {
@@ -17,6 +18,7 @@ module Metova
           }
 
           app.routes.default_url_options = app.config.action_mailer.default_url_options
+
         end
       end
 

@@ -9,7 +9,8 @@ module Metova
       end
 
       def devise_mapping
-        @_devise_mapping ||= ::Devise.mappings[super.singular.to_s.gsub('api_', '').intern]
+        _super = super
+        @_devise_mapping ||= ::Devise.mappings[_super.singular.to_s.gsub('api_', '').intern] || _super
       end
 
     end
