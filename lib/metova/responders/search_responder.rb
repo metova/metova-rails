@@ -41,4 +41,4 @@ module Metova
   end
 end
 
-Metova::Responder.prepend Metova::Responders::SearchResponder
+Metova::Responder.send :prepend, Metova::Responders::SearchResponder
