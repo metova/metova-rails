@@ -6,4 +6,9 @@ describe Post do
     expect(Post.filter('bb')).to eq [posts(:b)]
     expect(Post.filter('cc')).to eq [posts(:c)]
   end
+
+  it 'can be filtered with other attributes' do
+    expect(Post.filter('Hey', :title)).to eq [posts(:logan)]
+    expect(Post.filter('Hey', :body)).to eq []
+  end
 end

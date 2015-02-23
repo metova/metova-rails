@@ -9,13 +9,19 @@ module Metova
           @filter_attributes
         end
 
-        def filter(target)
+        def filter(target, *filter_attrs)
+          if filter_attrs.empty?
+            filter_attrs = @filter_attributes
+          end
+
           filter_texts = []
-          filter_attributes.each do |attr|
+          filter_attrs.each do |attr|
             filter_texts << "#{attr} like ?"
           end
+
           query = [filter_texts.join(' OR ')]
           filter_texts.count.times { query << "%#{target}%" }
+
           where(query)
         end
       end
