@@ -6,6 +6,7 @@ class Api::PostsController < Api::BaseController
   def index
     user = User.find params[:user_id]
     @posts = user.posts
+    @posts = @posts.filter(params[:query]) if params[:query]
     respond_with @posts
   end
 

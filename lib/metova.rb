@@ -15,5 +15,7 @@ require 'metova/devise/controller'
 require 'metova/devise/strategies/token_authenticatable'
 require 'metova/devise/models/token_authenticatable'
 
+require 'metova/models/filterable'
+
 module Metova
 end
