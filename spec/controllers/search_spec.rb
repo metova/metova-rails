@@ -4,7 +4,7 @@ describe Api::PostsController do
 
   describe 'searching' do
     it 'searches based on any text column' do
-      get :index, user_id: user, search: { query: 'AAA' }
+      get :index, user_id: user, search: { query: 'AA' }
       expect(json.size).to eq 1
       expect(json[0]['title']).to eq 'AAA'
     end

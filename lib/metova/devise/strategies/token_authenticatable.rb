@@ -32,7 +32,7 @@ module Devise
         end
 
         def token_and_options
-          @_token_and_options ||= ActionController::HttpAuthentication::Token.token_and_options(request)
+          @_token_and_options ||= ActionController::HttpAuthentication::Token.token_and_options(request) || []
         end
 
     end
