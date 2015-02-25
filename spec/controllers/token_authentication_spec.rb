@@ -5,7 +5,7 @@ describe Api::PostsController do
   describe '#secret' do
     describe 'returns an error when token authentication fails' do
       it 'due to an incorrect token' do
-        request.env['HTTP_AUTHORIZATION'] = "Token token=dickbutt, email=logan.serman@metova.com"
+        request.env['HTTP_AUTHORIZATION'] = "Token token=dickbutt, id=#{user.id}"
         get :secret
         expect(response.status).to eq 401
         expect(json[:error]).to eq 'Invalid authentication token'
@@ -13,7 +13,7 @@ describe Api::PostsController do
 
       it 'due to an expired token' do
         user.update_columns token_expires_at: Time.current - 1.day
-        request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}, email=logan.serman@metova.com"
+        request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}, id=#{user.id}"
         get :secret
         expect(response.status).to eq 401
         expect(json[:error]).to eq 'Invalid authentication token'
@@ -27,7 +27,7 @@ describe Api::PostsController do
     end
 
     it 'returns a 204 when the auth token checks out' do
-      request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}, email=logan.serman@metova.com"
+      request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}, id=#{user.id}"
       get :secret
       expect(response.status).to eq 204
     end

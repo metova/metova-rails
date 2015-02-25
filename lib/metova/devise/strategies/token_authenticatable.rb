@@ -5,7 +5,7 @@ module Devise
     class TokenAuthenticatable < Base
 
       def authenticate!
-        user = mapping.to.find_by(email: options[:email])
+        user = mapping.to.find_by id: options[:id]
         if user && valid_token?(user)
           success! user
         else
@@ -14,7 +14,7 @@ module Devise
       end
 
       def valid?
-        token.present? && options.include?(:email)
+        token.present? && options.include?(:id)
       end
 
       private
