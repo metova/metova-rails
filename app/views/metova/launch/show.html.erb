@@ -1,0 +1,36 @@
+<div id='wrapper'>
+  <div id='app-wrapper'>
+    <div id='app-container'>
+      <div id='content'>
+        <div id='title'>
+          <%= t 'launch.title' %>
+        </div>
+        <div id='subtitle'>
+          <%= t 'launch.subtitle' %>
+        </div>
+        <div id='description'>
+          <%= t 'launch.description' %>
+        </div>
+        <div id='email-sign-up'>
+          <form>
+            <input type='email' placeholder='Email' id='sign-up-input'>
+            <input type='submit' value='Sign Up' id='sign-up-link'>
+          </form>
+        </div>
+      </div>
+      <div id='phone'>
+        <%= image_tag t('launch.image_path', default: 'metova/default-app.png') %>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div id='footer-left'>
+      <a class='footer-link'>Home</a>
+    </div>
+    <div id='footer-right'>
+      <a class='footer-link'>Some Link</a>
+      <a class='footer-link'>Privacy</a>
+      <a class='footer-link'>Terms</a>
+    </div>
+  </footer>
+</div>
