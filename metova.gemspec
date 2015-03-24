@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.0.0'
 
   s.add_dependency 'rails', '~> 4.2.0'
+  s.add_dependency 'coffee-rails', '>= 4.0.0'
+  s.add_dependency 'sass-rails', '>= 5.0.0'
   s.add_dependency 'kaminari', '~> 0.16.0'
   s.add_dependency 'devise', '>= 3.2.0'
   s.add_dependency 'responders', '~> 2.0'
