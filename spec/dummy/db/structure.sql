@@ -202,11 +202,11 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
--- Name: fk_rails_dc52ca15b2; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_d5f0980209; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts
-    ADD CONSTRAINT fk_rails_dc52ca15b2 FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_d5f0980209 FOREIGN KEY (user_id) REFERENCES users(id);
 
 
 --

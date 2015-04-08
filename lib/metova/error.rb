@@ -1,13 +1,13 @@
 module Metova
-  class Error
+  class GenericError
     include ActiveModel::Model
 
-    def initialize(message)
-      @message = message
+    def initialize(error)
+      @error = error
     end
 
     def errors
-      [@message]
+      [@error]
     end
 
   end

@@ -9,10 +9,12 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "metova"
-require "metova/carrierwave"
+
+require 'refile'
+require 'aws-sdk'
+require 'metova'
 require 'pg'
-require "metova/search"
+require 'metova/search'
 
 module Dummy
   class Application < Rails::Application

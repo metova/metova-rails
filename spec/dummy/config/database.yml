@@ -24,8 +24,10 @@ test:
   adapter: postgresql
   encoding: unicode
   database: metova_test
-  username: postgres
+  username: apps
   password: metova123
+  host: 192.168.59.103
+  port: 45432
 
 production:
   <<: *default
