@@ -24,10 +24,15 @@ test:
   adapter: postgresql
   encoding: unicode
   database: metova_test
+<% if ENV['DOCKER'] %>
   username: apps
   password: metova123
   host: 192.168.59.103
   port: 45432
+<% else %>
+  username: postgres
+  password: metova123
+<% end %>
 
 production:
   <<: *default
