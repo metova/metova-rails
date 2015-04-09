@@ -10,6 +10,11 @@ class Api::PostsController < Api::BaseController
     respond_with @posts
   end
 
+  def show
+    @post = Post.find params[:id]
+    respond_with @post
+  end
+
   def secret
     head 204
   end

@@ -4,6 +4,7 @@ require 'metova/error'
 require 'metova/responders/pagination_responder'
 require 'metova/responders/ids_filter_responder'
 require 'metova/responders/sort_responder'
+require 'metova/responders/nested_association_responder'
 require 'metova/responder'
 
 require 'metova/versioning/unsupported_version_app'

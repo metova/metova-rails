@@ -4,6 +4,7 @@ module Metova
     prepend Metova::Responders::PaginationResponder
     prepend Metova::Responders::IdsFilterResponder
     prepend Metova::Responders::SortResponder
+    prepend Metova::Responders::NestedAssociationResponder
     include ::Responders::HttpCacheResponder
     include ::Responders::FlashResponder
 
