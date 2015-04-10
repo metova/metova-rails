@@ -22,7 +22,6 @@ module Metova
       end
 
       private
-
         def paginate(resource)
           resource.page(current_page).per(controller.params[:limit])
         end
@@ -54,7 +53,6 @@ module Metova
         def last_page
           @_last_page ||= @resource.total_pages
         end
-
     end
   end
 end

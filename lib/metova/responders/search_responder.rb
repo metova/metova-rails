@@ -8,7 +8,6 @@ module Metova
       end
 
       private
-
         def search(resource, query = {})
           if fuzzy?
             resource.fuzzy_search query, exclusive?
@@ -36,7 +35,6 @@ module Metova
             true
           end
         end
-
     end
   end
 end

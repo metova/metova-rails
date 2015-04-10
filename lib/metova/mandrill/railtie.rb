@@ -18,7 +18,6 @@ module Metova
           }
 
           app.config.action_mailer.smtp_settings.merge! domain: ENV['MANDRILL_DOMAIN'] if ENV['MANDRILL_DOMAIN']
-
         end
       end
 

@@ -8,7 +8,6 @@ module Metova
       end
 
       private
-
         def sort(resource)
           resource.order(field_to_order_by => direction)
         end
@@ -24,7 +23,6 @@ module Metova
         def direction
           controller.params.fetch(:direction, :asc)
         end
-
     end
   end
 end

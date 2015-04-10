@@ -8,7 +8,6 @@ module Metova
       end
 
       private
-
         def filter_ids(resource)
           resource.where(id: ids)
         end
@@ -20,7 +19,6 @@ module Metova
         def ids
           controller.params[:ids].split(',')
         end
-
     end
   end
 end

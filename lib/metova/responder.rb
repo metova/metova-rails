@@ -5,7 +5,7 @@ module Metova
     prepend Metova::Responders::IdsFilterResponder
     prepend Metova::Responders::SortResponder
     prepend Metova::Responders::NestedAssociationResponder
-    include ::Responders::HttpCacheResponder
+    include Metova::Responders::HttpCacheResponder
     include ::Responders::FlashResponder
 
     def to_format
@@ -25,10 +25,8 @@ module Metova
     end
 
     private
-
       def errors
         @_errors ||= []
       end
-
   end
 end

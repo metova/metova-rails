@@ -18,7 +18,6 @@ module Devise
       end
 
       private
-
         def valid_token?(user)
           !user.token_expired? && Devise.secure_compare(user.authentication_token, token)
         end
@@ -34,7 +33,6 @@ module Devise
         def token_and_options
           @_token_and_options ||= ActionController::HttpAuthentication::Token.token_and_options(request) || []
         end
-
     end
   end
 end
