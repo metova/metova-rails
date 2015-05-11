@@ -8,6 +8,11 @@ module Metova
     include Metova::Responders::HttpCacheResponder
     include ::Responders::FlashResponder
 
+    def initialize(*)
+      super
+      options[:location] = nil if format == :json
+    end
+
     def to_format
       validate!
       if errors.any?
