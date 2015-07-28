@@ -6,7 +6,7 @@ rvm:
 addons:
   postgresql: "9.4"
 before_script:
-  - psql -c 'create database metova_test;' -U postgres
+  - psql -c 'create database metova;' -U postgres
 deploy:
   provider: rubygems
   api_key:
