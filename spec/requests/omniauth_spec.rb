@@ -51,4 +51,41 @@ describe 'Omniauth integration' do
       end
     end
   end
+
+  context 'User is logged in' do
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'logan.serman@metova.com'
+      fill_in 'user[password]', with: 'password'
+      click_on 'Log in'
+    end
+
+    it 'links the OAuth account with the current user' do
+      OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({ provider: 'twitter', uid: '12345', info: {} })
+      visit posts_path
+      click_on 'Link account with Twitter'
+      expect(page).to have_content 'Provider: twitter, UID: 12345'
+      expect(users(:logan).reload.identities.size).to eq 1
+    end
+
+    it 'shows a message if the account is already linked' do
+      OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({ provider: 'twitter', uid: '12345', info: {} })
+      visit posts_path
+      click_on 'Link account with Twitter'
+      click_on 'Link account with Twitter'
+      expect(page).to have_content 'You are already linked with this account.'
+    end
+
+    it 'links multiple identities to the same provider' do
+      OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({ provider: 'twitter', uid: '12345', info: {} })
+      visit posts_path
+      click_on 'Link account with Twitter'
+      OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({ provider: 'twitter', uid: '67890', info: {} })
+      click_on 'Link account with Twitter'
+
+      expect(page).to have_content 'Provider: twitter, UID: 12345'
+      expect(page).to have_content 'Provider: twitter, UID: 67890'
+      expect(users(:logan).reload.identities.size).to eq 2
+    end
+  end
 end

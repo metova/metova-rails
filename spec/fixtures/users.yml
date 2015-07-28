@@ -1,6 +1,6 @@
 ---
 logan:
   username: lserman
-  password: password
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
   email: logan.serman@metova.com
   authentication_token: 'EXAMPLE_AUTH_TOKEN'

@@ -8,6 +8,30 @@
 </head>
 <body>
 
+<p class="flash"><%= flash[:notice] %></p>
+
+<% if signed_in? %>
+  <p>
+    Hey! You are logged in as <%= current_user.email %>.
+  </p>
+
+  <p>
+    Your identities:
+    <ul>
+      <% current_user.identities.each do |identity| %>
+        <li>Provider: <%= identity.provider %>, UID: <%= identity.uid %></li>
+      <% end %>
+    </ul>
+  </p>
+
+  <p>
+    Link another identity:
+    <ul>
+      <li><%= link_to "Link account with Twitter", omniauth_authorize_path(:user, :twitter) %></li>
+    </ul>
+  </p>
+<% end %>
+
 <%= yield %>
 
 </body>

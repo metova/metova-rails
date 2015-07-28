@@ -107,4 +107,18 @@ describe Metova::API::SessionsController do
       end
     end
   end
+
+  context 'User is signed in' do
+    let(:user) { users(:logan) }
+
+    it 'creates a new identity and links it to the current user' do
+      stub_request(:get, %r[graph.facebook.com/v2.3/me]).to_return body: File.read(File.expand_path('../../../../support/stubs/facebook/me.json', __FILE__))
+      user.update token_expires_at: Time.current + 1.day
+      request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}, id=#{user.id}"
+
+      expect {
+        post :create, access_token: 'token123', provider: 'facebook'
+      }.to change { user.reload.identities.size }.by 1
+    end
+  end
 end

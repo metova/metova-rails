@@ -58,7 +58,7 @@ class Metova::OmniauthCallbacksController < ::Devise::OmniauthCallbacksControlle
       redirect_to after_invalid_user_sign_up_path
     end
 
-    def redirect_with_notification(notification, path: root_path)
+    def redirect_with_notification(notification, path: main_app.root_path)
       redirect_to path, notice: notification
     end
 

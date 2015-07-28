@@ -1,6 +1,6 @@
 module Metova
   class Identity < ActiveRecord::Base
-    belongs_to :user
+    belongs_to :user, required: true
 
     validates :uid, :provider, presence: true
 

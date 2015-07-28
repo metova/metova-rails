@@ -15,11 +15,9 @@ Rails.application.routes.draw do
       controllers: { sessions: 'metova/api/sessions' }
 
     version 1 do
-
       resources :posts do
         get :secret, on: :collection
       end
-
     end
   end
 

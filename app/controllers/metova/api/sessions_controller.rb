@@ -15,11 +15,24 @@ class Metova::API::SessionsController < ::Devise::SessionsController
       auth = Metova::Oauth::GenericProvider.authenticate provider, params[:access_token], params[:token_secret]
       @identity = Metova::Identity.find_or_initialize_with_omniauth(auth)
 
-      if user = @identity.user
+      if signed_in?(:api_user)
+        attach_identity_to_user @identity, current_api_user
+      else
+        sign_in_or_sign_up_with_identity @identity, auth
+      end
+    end
+
+    def sign_in_or_sign_up_with_identity(identity, auth)
+      if user = identity.user
         sign_in_user user
       else
-        sign_up_user auth, @identity
+        sign_up_user auth, identity
       end
+    end
+
+    def attach_identity_to_user(identity, user)
+      identity.update(user: user) if identity.user != user
+      respond_with identity, location: nil
     end
 
     def sign_in_user(user)
