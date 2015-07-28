@@ -58,6 +58,39 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: metova_identities; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE metova_identities (
+    id integer NOT NULL,
+    uid character varying,
+    provider character varying,
+    user_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: metova_identities_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE metova_identities_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: metova_identities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE metova_identities_id_seq OWNED BY metova_identities.id;
+
+
+--
 -- Name: posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -147,6 +180,13 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY metova_identities ALTER COLUMN id SET DEFAULT nextval('metova_identities_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
 
 
@@ -155,6 +195,14 @@ ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regcl
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: metova_identities_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY metova_identities
+    ADD CONSTRAINT metova_identities_pkey PRIMARY KEY (id);
 
 
 --
@@ -171,6 +219,13 @@ ALTER TABLE ONLY posts
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_metova_identities_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_metova_identities_on_user_id ON metova_identities USING btree (user_id);
 
 
 --
@@ -202,11 +257,11 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
--- Name: fk_rails_d5f0980209; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_df825de187; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts
-    ADD CONSTRAINT fk_rails_d5f0980209 FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_df825de187 FOREIGN KEY (user_id) REFERENCES users(id);
 
 
 --
@@ -224,4 +279,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150114203236');
 INSERT INTO schema_migrations (version) VALUES ('20150114204523');
 
 INSERT INTO schema_migrations (version) VALUES ('20150211010731');
+
+INSERT INTO schema_migrations (version) VALUES ('20150620175834');
 

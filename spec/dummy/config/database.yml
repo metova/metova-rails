@@ -13,8 +13,6 @@ development:
   adapter: postgresql
   encoding: unicode
   database: metova_development
-  username: postgres
-  password: metova123
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,15 +21,12 @@ test:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: metova_test
+  database: metova
 <% if ENV['DOCKER'] %>
   username: apps
   password: metova123
   host: 192.168.59.103
   port: 45432
-<% else %>
-  username: postgres
-  password: metova123
 <% end %>
 
 production:

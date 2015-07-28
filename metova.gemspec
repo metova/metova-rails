@@ -25,9 +25,14 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'capybara'
   s.add_development_dependency 'textacular'
   s.add_development_dependency 'pg'
   s.add_development_dependency 'refile'
+  s.add_development_dependency 'omniauth'
+  s.add_development_dependency 'omniauth-twitter'
+  s.add_development_dependency 'launchy'
+  s.add_development_dependency 'webmock'
   s.add_development_dependency 'aws-sdk', '< 2'
 
 end

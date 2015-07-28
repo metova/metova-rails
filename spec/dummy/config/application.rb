@@ -15,6 +15,7 @@ require 'aws-sdk'
 require 'metova'
 require 'pg'
 require 'metova/search'
+require 'metova/oauth'
 
 module Dummy
   class Application < Rails::Application
