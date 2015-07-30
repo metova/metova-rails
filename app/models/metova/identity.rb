@@ -3,6 +3,7 @@ module Metova
     belongs_to :user, required: true
 
     validates :uid, :provider, presence: true
+    validates :uid, uniqueness: { scope: :provider }
 
     def self.find_or_initialize_with_omniauth(auth)
       find_or_initialize_by uid: auth.uid, provider: auth.provider
