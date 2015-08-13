@@ -2,6 +2,7 @@ module Metova
   class Responder < ActionController::Responder
 
     prepend Metova::Responders::PaginationResponder
+    prepend Metova::Responders::ErrorResponder
     prepend Metova::Responders::IdsFilterResponder
     prepend Metova::Responders::SortResponder
     prepend Metova::Responders::NestedAssociationResponder
