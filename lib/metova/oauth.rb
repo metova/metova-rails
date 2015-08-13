@@ -1,4 +1,6 @@
 require 'metova'
+require 'open-uri'
+
 require 'metova/oauth/generic_provider'
 require 'metova/oauth/facebook_provider'
 require 'metova/oauth/twitter_provider'
