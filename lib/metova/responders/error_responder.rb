@@ -4,11 +4,11 @@ module Metova
 
       def initialize(*)
         super
-  	    if has_errors?
-  	      Rails.logger.error "Response failed with error(s): #{@resource.errors.full_messages.to_sentence}"
-  	    end
-  	  end
+        if has_errors?
+          Rails.logger.error "Response failed with error(s): #{@resource.errors.full_messages.to_sentence}"
+        end
+      end
 
-  	end
+    end
   end
 end
