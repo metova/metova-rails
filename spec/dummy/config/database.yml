@@ -23,9 +23,9 @@ test:
   encoding: unicode
   database: metova
 <% if ENV['DOCKER'] %>
-  username: apps
-  password: metova123
-  host: 192.168.59.103
+  username: <%= ENV.fetch('DB_USERNAME', 'apps') %>
+  password: <%= ENV.fetch('DB_PASSWORD', 'metova123') %>
+  host: <%= ENV.fetch('DB_MASTER_HOST', '192.168.59.103') %>
   port: 45432
 <% end %>
 

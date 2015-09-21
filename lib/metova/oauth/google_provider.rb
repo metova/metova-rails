@@ -11,7 +11,7 @@ module Metova
       end
 
       def provider
-        :facebook
+        :google_oauth2
       end
 
       private
