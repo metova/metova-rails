@@ -10,5 +10,8 @@ module Metova
       [@error]
     end
 
+    def to_json(*)
+      { errors: errors }.to_json
+    end
   end
 end

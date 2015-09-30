@@ -7,28 +7,18 @@
 default: &default
   pool: 5
   timeout: 5000
-
-development:
-  <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: metova_development
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
-  <<: *default
   adapter: postgresql
   encoding: unicode
   database: metova
-<% if ENV['DOCKER'] %>
   username: apps
   password: metova123
-  host: 192.168.59.103
-  port: 45432
-<% end %>
+  host: 192.168.99.100
+
+development:
+  <<: *default
+
+test:
+  <<: *default
 
 production:
   <<: *default
-  database: db/production.sqlite3

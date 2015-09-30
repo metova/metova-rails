@@ -10,6 +10,10 @@ module Metova
         self
       end
 
+      def name
+        'FluxID'
+      end
+
       def provider
         :flux
       end

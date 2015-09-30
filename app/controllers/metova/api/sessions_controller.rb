@@ -1,5 +1,6 @@
 class Metova::API::SessionsController < ::Devise::SessionsController
   respond_to :json
+  self.responder = Metova::Responder
 
   def create
     if params[:provider]
@@ -42,10 +43,15 @@ class Metova::API::SessionsController < ::Devise::SessionsController
 
     def sign_up_user(auth, identity)
       user = User.new Hash[email: auth.info.email, password: SecureRandom.hex].merge(sign_in_params)
-      if user.save and identity.update(user: user)
-        sign_in_user user
+      identity.user = user
+      if identity.valid?
+        if user.save and identity.save
+          sign_in_user user
+        else
+          respond_with user
+        end
       else
-        respond_with user
+        render json: Metova::GenericError.new("#{auth.name} authentication failed")
       end
     end
 end

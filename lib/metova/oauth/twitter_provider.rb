@@ -11,6 +11,10 @@ module Metova
         self
       end
 
+      def name
+        'Twitter'
+      end
+
       def provider
         :twitter
       end

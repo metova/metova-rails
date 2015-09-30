@@ -10,6 +10,10 @@ module Metova
         self
       end
 
+      def name
+        'Facebook'
+      end
+
       def provider
         :facebook
       end

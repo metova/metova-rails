@@ -12,6 +12,10 @@ module Metova
         find_provider(provider).new(access_token, token_secret).authenticate
       end
 
+      def name
+        'OAuth'
+      end
+
       private
         def self.find_provider(provider)
           map = {

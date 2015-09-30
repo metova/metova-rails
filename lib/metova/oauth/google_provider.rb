@@ -10,8 +10,12 @@ module Metova
         self
       end
 
+      def name
+        'Google'
+      end
+
       def provider
-        :facebook
+        :google_oauth2
       end
 
       private

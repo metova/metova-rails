@@ -24,6 +24,24 @@ describe Metova::API::SessionsController do
       end
     end
 
+    context 'user does not exist but identity could not be created' do
+      before do
+        stub_request(:get, %r[api.twitter.com/1.1/account/verify_credentials]).to_return \
+          body: File.read(File.expand_path('../../../../support/stubs/twitter/verify_credentials_failure.401.json', __FILE__))
+      end
+
+      it "does not save the user" do
+        expect {
+          post :create, user: { email: 'test@metova.com' }, access_token: 'token123', token_secret: 'secret123', provider: 'twitter'
+        }.to_not change(User, :count)
+      end
+
+      it "returns an appropriate error message" do
+        post :create, user: { email: 'test@metova.com' }, access_token: 'token123', token_secret: 'secret123', provider: 'twitter'
+        expect(json[:errors]).to include 'Twitter authentication failed'
+      end
+    end
+
     context 'user does not exist with the UID and cannot be created' do
       it "returns the errors on the user" do
         post :create, access_token: 'token123', token_secret: 'secret123', provider: 'twitter'
