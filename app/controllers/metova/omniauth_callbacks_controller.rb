@@ -46,7 +46,8 @@ class Metova::OmniauthCallbacksController < ::Devise::OmniauthCallbacksControlle
 
     def sign_up_user(auth, identity)
       Rails.logger.info "Omniauth callback data: #{auth.to_h}"
-      user = User.new email: auth.info.email, password: SecureRandom.hex
+      user = User.find_or_initialize_by(email: auth.info.email) { |new_user| new_user.password = SecureRandom.hex }
+
       if user.save and identity.update(user: user)
         sign_in_and_redirect :user, identity.user
       else
