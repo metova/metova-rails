@@ -8,6 +8,8 @@ addons:
   postgresql: "9.4"
 before_script:
   - psql -c 'create database metova;' -U postgres
+env:
+  - TRAVIS=1
 deploy:
   provider: rubygems
   api_key:

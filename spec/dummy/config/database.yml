@@ -1,18 +1,14 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
   pool: 5
   timeout: 5000
   adapter: postgresql
   encoding: unicode
   database: metova
+<% unless ENV['TRAVIS'] %>
   username: apps
   password: metova123
-  host: 192.168.99.100
+  host: 192.168.59.103
+<% end %>
 
 development:
   <<: *default
