@@ -19,22 +19,22 @@ module Metova
         :twitter
       end
 
-      private
-        def me
-          super do
-            JSON.parse(oauth_access_token.get(ME_URL).body)
-          end
+      def me
+        super do
+          JSON.parse oauth_access_token.get(ME_URL).body
         end
+      end
 
-        def oauth_access_token
-          OAuth::AccessToken.from_hash consumer, oauth_token: access_token, oauth_token_secret: token_secret
-        end
+      def oauth_access_token
+        OAuth::AccessToken.from_hash consumer, oauth_token: access_token, oauth_token_secret: token_secret
+      end
 
-        def consumer
-          @consumer ||= begin
-            OAuth::Consumer.new(ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET'], site: TWITTER_SITE_URL, scheme: :header)
-          end
+      def consumer
+        @consumer ||= begin
+          raise Metova::Oauth::Error::DeviseNotConfigured.new unless setup_with_devise?
+          OAuth::Consumer.new(consumer_key, consumer_secret, site: TWITTER_SITE_URL, scheme: :header)
         end
+      end
     end
   end
 end

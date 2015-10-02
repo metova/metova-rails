@@ -7,6 +7,8 @@ require 'metova/oauth/twitter_provider'
 require 'metova/oauth/flux_provider'
 require 'metova/oauth/google_provider'
 
+require 'metova/oauth/error/devise_not_configured'
+
 begin
   require 'omniauth'
 rescue LoadError

@@ -18,14 +18,13 @@ module Metova
         :google_oauth2
       end
 
-      private
-        def me
-          super do
-            client = OAuth2
-            token = OAuth2::AccessToken.new
-            JSON.parse URI.parse(ME_URL[access_token]).read
-          end
+      def me
+        super do
+          client = OAuth2
+          token = OAuth2::AccessToken.new
+          JSON.parse URI.parse(ME_URL[access_token]).read
         end
+      end
     end
   end
 end

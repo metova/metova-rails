@@ -256,11 +256,11 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
--- Name: fk_rails_706e1ce233; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_91623f4e2f; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts
-    ADD CONSTRAINT fk_rails_706e1ce233 FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_rails_91623f4e2f FOREIGN KEY (user_id) REFERENCES users(id);
 
 
 --
@@ -279,5 +279,5 @@ INSERT INTO schema_migrations (version) VALUES ('20150114204523');
 
 INSERT INTO schema_migrations (version) VALUES ('20150211010731');
 
-INSERT INTO schema_migrations (version) VALUES ('20150620175834');
+INSERT INTO schema_migrations (version) VALUES ('20150211010732');
 

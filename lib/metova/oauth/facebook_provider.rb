@@ -18,12 +18,11 @@ module Metova
         :facebook
       end
 
-      private
-        def me
-          super do
-            JSON.parse URI.parse(ME_URL[access_token]).read
-          end
+      def me
+        super do
+          JSON.parse URI.parse(ME_URL[access_token]).read
         end
+      end
     end
   end
 end

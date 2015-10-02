@@ -51,7 +51,7 @@ class Metova::API::SessionsController < ::Devise::SessionsController
           respond_with user
         end
       else
-        render json: Metova::GenericError.new("#{auth.name} authentication failed")
+        render json: Metova::GenericError.new("#{auth.name} authentication failed"), status: 401
       end
     end
 end

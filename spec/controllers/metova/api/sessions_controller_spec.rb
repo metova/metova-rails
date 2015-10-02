@@ -38,6 +38,7 @@ describe Metova::API::SessionsController do
 
       it "returns an appropriate error message" do
         post :create, user: { email: 'test@metova.com' }, access_token: 'token123', token_secret: 'secret123', provider: 'twitter'
+        expect(response).to have_http_status 401
         expect(json[:errors]).to include 'Twitter authentication failed'
       end
     end

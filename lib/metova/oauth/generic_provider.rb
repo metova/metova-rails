@@ -16,6 +16,32 @@ module Metova
         'OAuth'
       end
 
+      protected
+        def me(&block)
+          yield
+          # rescue errors
+        end
+
+        def setup_with_devise?
+          devise_configuration.present?
+        end
+
+        def devise_configuration
+          ::Devise.omniauth_configs[provider]
+        end
+
+        def devise_strategy
+          devise_configuration.strategy
+        end
+
+        def consumer_key
+          devise_strategy.consumer_key
+        end
+
+        def consumer_secret
+          devise_strategy.consumer_secret
+        end
+
       private
         def self.find_provider(provider)
           map = {
@@ -26,11 +52,6 @@ module Metova
           }
 
           map.fetch provider.to_sym
-        end
-
-        def me(&block)
-          yield
-          # rescue errors
         end
     end
   end
