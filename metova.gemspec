@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'textacular'
   s.add_development_dependency 'pg'
-  s.add_development_dependency 'refile'
+  s.add_development_dependency 'refile', '~> 0.5.0'
   s.add_development_dependency 'omniauth'
   s.add_development_dependency 'omniauth-twitter'
   s.add_development_dependency 'launchy'
