@@ -19,4 +19,18 @@ class Api::PostsController < Api::BaseController
     head 204
   end
 
+  def update
+    @post = Post.find params[:id]
+    @post.update permitted_params
+    respond_with @post
+  end
+
+  def display_resource_on_put_and_delete?
+    false
+  end
+
+  private
+    def permitted_params
+      params.require(:post).permit :title
+    end
 end

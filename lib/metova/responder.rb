@@ -5,6 +5,7 @@ module Metova
     prepend Metova::Responders::IdsFilterResponder
     prepend Metova::Responders::SortResponder
     prepend Metova::Responders::NestedAssociationResponder
+    prepend Metova::Responders::DisplayResourceOnPutDeleteResponder
     include Metova::Responders::HttpCacheResponder
     include ::Responders::FlashResponder
 
