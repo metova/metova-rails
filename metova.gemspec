@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.0.0'
 
   s.add_dependency 'rails', '5.0.0.beta1'
-  s.add_dependency 'kaminari', '~> 0.16.0'
-  s.add_dependency 'devise', '>= 3.2.0'
+  # s.add_dependency 'kaminari', '~> 0.16.0'
+  s.add_dependency 'devise', '~> 3.5'
   s.add_dependency 'responders', '~> 2.0'
 
   s.add_development_dependency 'sqlite3'
@@ -28,11 +28,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara'
   # s.add_development_dependency 'textacular'
   s.add_development_dependency 'pg'
-  s.add_development_dependency 'refile', '~> 0.5.0'
+  s.add_development_dependency 'refile', '~> 0.5'
   s.add_development_dependency 'omniauth'
   s.add_development_dependency 'omniauth-twitter'
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'webmock'
-  s.add_development_dependency 'aws-sdk', '< 2'
+  s.add_development_dependency 'aws-sdk-v1'
 
 end
