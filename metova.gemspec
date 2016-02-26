@@ -7,7 +7,7 @@ require "metova/version"
 Gem::Specification.new do |s|
   s.name        = "metova"
   s.version     = Metova::VERSION
-  s.authors     = ["Logan Serman"]
+  s.authors     = ["Logan Serman", "Riley Mills"]
   s.email       = ["loganserman@gmail.com"]
   s.homepage    = "http://github.com/metova/metova-rails"
   s.summary     = "Metova libraries for Ruby on Rails"
