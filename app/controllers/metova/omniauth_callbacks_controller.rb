@@ -5,7 +5,8 @@ class Metova::OmniauthCallbacksController < ::Devise::OmniauthCallbacksControlle
     :twitter,
     :facebook,
     :google_oauth2,
-    :instagram
+    :instagram,
+    :github
   ]
 
   def all
