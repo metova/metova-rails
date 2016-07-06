@@ -97,7 +97,7 @@ describe Metova::API::SessionsController do
 
   context 'Facebook login' do
     before do
-      stub_request(:get, %r[graph.facebook.com/v2.3/me]).to_return body: File.read(File.expand_path('../../../../support/stubs/facebook/me.json', __FILE__))
+      stub_request(:get, %r[graph.facebook.com/v2.6/me]).to_return body: File.read(File.expand_path('../../../../support/stubs/facebook/me.json', __FILE__))
     end
 
     it 'uses the provider, token secret, and access token to get the UID' do
@@ -131,7 +131,7 @@ describe Metova::API::SessionsController do
     let(:user) { users(:logan) }
 
     it 'creates a new identity and links it to the current user' do
-      stub_request(:get, %r[graph.facebook.com/v2.3/me]).to_return body: File.read(File.expand_path('../../../../support/stubs/facebook/me.json', __FILE__))
+      stub_request(:get, %r[graph.facebook.com/v2.6/me]).to_return body: File.read(File.expand_path('../../../../support/stubs/facebook/me.json', __FILE__))
       user.update token_expires_at: Time.current + 1.day
       request.env['HTTP_AUTHORIZATION'] = "Token token=#{user.authentication_token}, id=#{user.id}"
 

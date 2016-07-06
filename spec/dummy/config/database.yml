@@ -7,7 +7,7 @@ default: &default
 <% unless ENV['TRAVIS'] %>
   username: apps
   password: metova123
-  host: <%= `docker-machine ip default` %>
+  host: localhost
 <% end %>
 
 development:
