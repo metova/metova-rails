@@ -1,8 +1,8 @@
 module Metova
   module Oauth
     class FacebookProvider < GenericProvider
-      FACEBOOK_API_URL = 'https://graph.facebook.com/v2.3'
-      ME_URL = -> (token) { "#{FACEBOOK_API_URL}/me?access_token=#{token}" }
+      FACEBOOK_API_URL = 'https://graph.facebook.com/v2.6'
+      ME_URL = -> (token) { "#{FACEBOOK_API_URL}/me?fields=name,email&access_token=#{token}" }
 
       def authenticate
         self.info = OmniAuth::AuthHash.new me
