@@ -7,10 +7,10 @@ require 'metova/version'
 Gem::Specification.new do |s|
   s.name        = 'metova'
   s.version     = Metova::VERSION
-  s.authors     = ["Logan Serman", "Riley Mills"]
-  s.email       = ["loganserman@gmail.com"]
-  s.homepage    = "http://github.com/metova/metova-rails"
-  s.summary     = "Metova libraries for Ruby on Rails"
+  s.authors     = ['Logan Serman', 'Riley Mills']
+  s.email       = ['loganserman@gmail.com']
+  s.homepage    = 'http://github.com/metova/metova-rails'
+  s.summary     = 'Metova libraries for Ruby on Rails'
   s.description = s.summary
   s.license     = 'MIT'
 
@@ -18,17 +18,13 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.0.0'
 
-  s.add_dependency 'rails', ['> 4', '< 5.1']
-  # s.add_dependency 'kaminari', '~> 0.16.0'
+  s.add_dependency 'rails', ['>= 5', '< 5.1']
   s.add_dependency 'devise', '~> 4.1.0'
   s.add_dependency 'responders', '~> 2.0'
 
   s.add_development_dependency 'sqlite3'
-  # s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
-  # s.add_development_dependency 'textacular'
   s.add_development_dependency 'pg'
-  # s.add_development_dependency 'refile', '~> 0.6'
   s.add_development_dependency 'omniauth', '>= 1.3'
   s.add_development_dependency 'omniauth-twitter'
   s.add_development_dependency 'launchy'

@@ -1,5 +1,5 @@
 module Metova
-  class GenericError
+  class ErrorMessage
     include ActiveModel::Model
 
     def initialize(error)

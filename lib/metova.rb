@@ -1,5 +1,5 @@
 require 'metova/engine'
-require 'metova/error'
+require 'metova/error_message'
 
 require 'metova/responders/pagination_responder'
 require 'metova/responders/ids_filter_responder'
