@@ -12,15 +12,6 @@ module Metova
         end
       end
 
-      def validate!
-        if controller.params.include?(:page) && !controller.params.include?(:limit)
-          errors << "The 'page' param was sent without 'limit'"
-        elsif controller.params.include?(:limit) && !controller.params.include?(:page)
-          errors << "The 'limit' param was sent without 'page'"
-        end
-        super
-      end
-
       private
         def paginate(resource)
           resource.page(current_page).per(controller.params[:limit])
