@@ -17,5 +17,4 @@ describe Api::PostsController do
       expect(json[2]['title']).to eq 'BBB'
     end
   end
-
 end
