@@ -1,4 +1,4 @@
-class CreateMetovaIdentities < ActiveRecord::Migration
+class CreateMetovaIdentities < ActiveRecord::Migration[5.0]
   def change
     create_table :metova_identities do |t|
       t.string :uid
