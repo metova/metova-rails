@@ -2,6 +2,7 @@ require 'metova/engine'
 require 'metova/error'
 
 require 'metova/responders/pagination_responder'
+require 'metova/responders/error_responder'
 require 'metova/responders/ids_filter_responder'
 require 'metova/responders/sort_responder'
 require 'metova/responders/nested_association_responder'
