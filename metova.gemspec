@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.0.0'
 
-  s.add_dependency 'rails', ['>= 5', '< 5.1']
+  s.add_dependency 'rails', ['>= 5', '< 6']
   s.add_dependency 'devise', '>= 4'
   s.add_dependency 'responders', '~> 2.0'
 
