@@ -14,6 +14,8 @@ require 'metova/versioning/router_dsl'
 require 'metova/versioning/constraints'
 require 'metova/versioning/railtie'
 
+require 'metova/smtp'
+
 require 'metova/devise/controller'
 require 'metova/devise/strategies/token_authenticatable'
 require 'metova/devise/models/token_authenticatable'
