@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'textacular'
   s.add_development_dependency 'pg'
   s.add_development_dependency 'refile', '~> 0.5.0'
-  s.add_development_dependency 'omniauth'
+  s.add_development_dependency 'omniauth', '~> 1.3.2'
   s.add_development_dependency 'omniauth-twitter'
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'webmock'
